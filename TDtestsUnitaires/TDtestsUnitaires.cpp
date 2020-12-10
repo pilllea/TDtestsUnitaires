@@ -1,49 +1,40 @@
 #include <iostream>
 #include <math.h>
 #include "Calculator.h"
+#include "User.h"
 using namespace std;
-
-/// <summary>
-/// Retrieve a number from the participant
-/// </summary>
-/// <returns></returns>
-int getAnumber() {
-	int a;
-	cout << "Enter Number: ";
-	cin >> a;
-	return a;
-}
 
 int main()
 {
-	//Choice of action given by the user
-	int choice;
 	int a, b;
 	//Simple calculator object
 	Calculator cal; 
-	cout << "Enter 1 : Add 2 Numbers"
-		<< "\nEnter 2 : Subtract 2 Numbers"
-		<< "\nEnter 0 : To Exit"
-		<< "\n";
+
+	//Simple user object
+	User someone;
+
+	//Premier test à la main
+	string isValid = (cal.factorielle(0)) ? "Fonctionne" : "Ne fonctionne pas\n\n";
+	cout << "Test - Factorielle de 0 est egal a 1 : " << isValid; //Sans modification du code source, ce test n'est pas validé
 
 	do {
 		cout << "\nEnter Choice: ";
-		cin >> choice;
+		someone.setChoice();
 
-		switch (choice) {
+		switch (someone.getChoice()) {
 		case 1:
-			a = getAnumber();
-			b = getAnumber();
+			a = someone.askAnumber();
+			b = someone.askAnumber();
 			cout << "Result: " << cal.add(a, b) << endl;
 			break;
 		case 2:
-			a = getAnumber();
-			b = getAnumber();
+			a = someone.askAnumber();
+			b = someone.askAnumber();
 			cout << "Result: " << cal.sub(a, b) << endl;
 			break;
 		}
 
-	} while (choice >= 1 && choice <= 4);
+	} while (someone.getChoice() >= 1 && someone.getChoice() <= 4);
 
 	return 0;
 }

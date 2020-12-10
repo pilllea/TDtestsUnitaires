@@ -24,4 +24,12 @@ public:
 	/// <param name="b"></param>
 	/// <returns></returns>
 	int sub(int a, int b);
+
+	/// <summary>
+	/// Calcul la division de a par b
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns></returns>
+	double div(double a, double b);
 };
